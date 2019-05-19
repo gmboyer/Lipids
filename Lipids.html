@@ -13112,24 +13112,7 @@ div#notebook {
 <body>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
-<script>
-  function code_toggle() {
-    if (code_shown){
-      $('div.input').hide('500');
-      $('#toggleButton').val('Show Code')
-    } else {
-      $('div.input').show('500');
-      $('#toggleButton').val('Hide Code')
-    }
-    code_shown = !code_shown
-  }
 
-  $( document ).ready(function(){
-    code_shown=false;
-    $('div.input').hide()
-  });
-</script>
-<form action="javascript:code_toggle()"><input type="submit" id="toggleButton" value="Show Code"></form>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13580,23 +13563,6 @@ $$HCO_{3(aq)}^{-} + NH_{3} + H_{(aq)}^+ + e_{(aq)}^- = average\ lipid\ of\ site\
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="c1">### install necessary packages</span>
-<span class="c1"># install.packages(&#39;plotly&#39;, repos=&#39;http://cran.us.r-project.org&#39;)</span>
-<span class="c1"># install.packages(&#39;CHNOSZ&#39;, repos=&#39;http://cran.us.r-project.org&#39;)</span>
-<span class="c1"># install.packages(&#39;ggplot2&#39;, repos=&#39;http://cran.us.r-project.org&#39;)</span>
-<span class="c1"># install.packages(&#39;repr&#39;, repos=&#39;http://cran.us.r-project.org&#39;)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13604,28 +13570,6 @@ $$HCO_{3(aq)}^{-} + NH_{3} + H_{(aq)}^+ + e_{(aq)}^- = average\ lipid\ of\ site\
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="c1">### Load packages</span>
-
-<span class="c1"># turn off warning messages</span>
-<span class="nf">options</span><span class="p">(</span><span class="n">warn</span><span class="o">=</span><span class="m">-1</span><span class="p">)</span>
-
-<span class="c1"># load package for thermo calcs</span>
-<span class="nf">suppressMessages</span><span class="p">(</span><span class="nf">library</span><span class="p">(</span><span class="n">CHNOSZ</span><span class="p">))</span>
-
-<span class="c1"># load CHNOSZ database</span>
-<span class="nf">suppressMessages</span><span class="p">(</span><span class="nf">data</span><span class="p">(</span><span class="n">thermo</span><span class="p">))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -13637,7 +13581,48 @@ $$HCO_{3(aq)}^{-} + NH_{3} + H_{(aq)}^+ + e_{(aq)}^- = average\ lipid\ of\ site\
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1">### install necessary R packages</span>
+<span class="c1"># install.packages(&#39;CHNOSZ&#39;, repos=&#39;http://cran.us.r-project.org&#39;)</span>
+<span class="c1"># install.packages(&#39;ggplot2&#39;, repos=&#39;http://cran.us.r-project.org&#39;)</span>
+<span class="c1"># install.packages(&#39;repr&#39;, repos=&#39;http://cran.us.r-project.org&#39;)</span>
+
+<span class="c1">### Load packages</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">CHNOSZ</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">repr</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>CHNOSZ version 1.3.2-10 (2019-05-06)
+reset: creating &#34;thermo&#34; object
+obigt: loading default database with 1841 aqueous, 3357 total species
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1">### add average lipid properties to CHNOSZ database</span>
@@ -13664,14 +13649,18 @@ $$HCO_{3(aq)}^{-} + NH_{3} + H_{(aq)}^+ + e_{(aq)}^- = average\ lipid\ of\ site\
 
 <div class="output_html rendered_html output_subarea ">
 <table>
-<thead><tr><th></th><th scope=col>name</th><th scope=col>abbrv</th><th scope=col>formula</th><th scope=col>state</th><th scope=col>ref1</th><th scope=col>ref2</th><th scope=col>date</th><th scope=col>G</th><th scope=col>H</th><th scope=col>S</th><th scope=col>Cp</th><th scope=col>V</th><th scope=col>a1</th><th scope=col>a2</th><th scope=col>a3</th><th scope=col>a4</th><th scope=col>c1</th><th scope=col>c2</th><th scope=col>omega</th><th scope=col>Z</th></tr></thead>
+<caption>A data.frame: 6 × 20</caption>
+<thead>
+	<tr><th></th><th scope=col>name</th><th scope=col>abbrv</th><th scope=col>formula</th><th scope=col>state</th><th scope=col>ref1</th><th scope=col>ref2</th><th scope=col>date</th><th scope=col>G</th><th scope=col>H</th><th scope=col>S</th><th scope=col>Cp</th><th scope=col>V</th><th scope=col>a1</th><th scope=col>a2</th><th scope=col>a3</th><th scope=col>a4</th><th scope=col>c1</th><th scope=col>c2</th><th scope=col>omega</th><th scope=col>Z</th></tr>
+	<tr><th></th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
 <tbody>
-	<tr><th scope=row>3358</th><td>Bison1                </td><td>NA                    </td><td>C19.8H39.5N0.0111O1.28</td><td>aq                    </td><td>thermofunc            </td><td>NA                    </td><td>11/1/2017             </td><td> -7779.977            </td><td>-165548.2             </td><td>146.4985              </td><td>395.8124              </td><td>319.0402              </td><td>6.380555              </td><td>4610.164              </td><td>88.93901              </td><td>-329282.4             </td><td>387.7237              </td><td>32835.18              </td><td>-15373.26             </td><td>0                     </td></tr>
-	<tr><th scope=row>3359</th><td>Bison2                </td><td>NA                    </td><td>C19.4H38.6N0.0164O1.42</td><td>aq                    </td><td>thermofunc            </td><td>NA                    </td><td>11/1/2017             </td><td>-15764.062            </td><td>-169001.9             </td><td>150.6434              </td><td>388.9181              </td><td>312.4211              </td><td>6.254139              </td><td>4499.090              </td><td>86.61967              </td><td>-321221.1             </td><td>381.0372              </td><td>31963.55              </td><td>-15039.45             </td><td>0                     </td></tr>
-	<tr><th scope=row>3360</th><td>Bison3                </td><td>NA                    </td><td>C18H35.5N0.0236O1.73  </td><td>aq                    </td><td>thermofunc            </td><td>NA                    </td><td>11/1/2017             </td><td>-36975.259            </td><td>-177535.1             </td><td>150.5980              </td><td>361.4238              </td><td>291.4375              </td><td>5.849094              </td><td>4158.048              </td><td>79.53854              </td><td>-296386.5             </td><td>354.1030              </td><td>29609.83              </td><td>-14152.19             </td><td>0                     </td></tr>
-	<tr><th scope=row>3361</th><td>Bison4                </td><td>NA                    </td><td>C17.3H34.7N0.015O1.55 </td><td>aq                    </td><td>thermofunc            </td><td>NA                    </td><td>11/1/2017             </td><td>-28442.862            </td><td>-165284.8             </td><td>145.0045              </td><td>350.8409              </td><td>280.6913              </td><td>5.642638              </td><td>3980.866              </td><td>75.87279              </td><td>-283555.8             </td><td>343.8761              </td><td>28109.31              </td><td>-13597.09             </td><td>0                     </td></tr>
-	<tr><th scope=row>3362</th><td>Bison5                </td><td>NA                    </td><td>C16.9H33N0.00259O1.81 </td><td>aq                    </td><td>thermofunc            </td><td>NA                    </td><td>11/1/2017             </td><td>-42450.206            </td><td>-172146.0             </td><td>147.9660              </td><td>338.3405              </td><td>272.5637              </td><td>5.481634              </td><td>3859.431              </td><td>73.37821              </td><td>-274599.8             </td><td>331.4704              </td><td>27710.01              </td><td>-13450.73             </td><td>0                     </td></tr>
-	<tr><th scope=row>3363</th><td>Bison6                </td><td>NA                    </td><td>C16.7H31.8N0.0033O1.96</td><td>aq                    </td><td>thermofunc            </td><td>NA                    </td><td>11/1/2017             </td><td>-44937.702            </td><td>-169183.8             </td><td>150.9237              </td><td>329.8841              </td><td>265.7185              </td><td>5.374079              </td><td>3684.549              </td><td>69.73712              </td><td>-262889.3             </td><td>324.2365              </td><td>22531.73              </td><td>-11602.47             </td><td>0                     </td></tr>
+	<tr><th scope=row>3358</th><td>Bison1</td><td>NA</td><td>C19.8H39.5N0.0111O1.28</td><td>aq</td><td>thermofunc</td><td>NA</td><td>11/1/2017</td><td> -7779.977</td><td>-165548.2</td><td>146.4985</td><td>395.8124</td><td>319.0402</td><td>6.380555</td><td>4610.164</td><td>88.93901</td><td>-329282.4</td><td>387.7237</td><td>32835.18</td><td>-15373.26</td><td>0</td></tr>
+	<tr><th scope=row>3359</th><td>Bison2</td><td>NA</td><td>C19.4H38.6N0.0164O1.42</td><td>aq</td><td>thermofunc</td><td>NA</td><td>11/1/2017</td><td>-15764.062</td><td>-169001.9</td><td>150.6434</td><td>388.9181</td><td>312.4211</td><td>6.254139</td><td>4499.090</td><td>86.61967</td><td>-321221.1</td><td>381.0372</td><td>31963.55</td><td>-15039.45</td><td>0</td></tr>
+	<tr><th scope=row>3360</th><td>Bison3</td><td>NA</td><td>C18H35.5N0.0236O1.73  </td><td>aq</td><td>thermofunc</td><td>NA</td><td>11/1/2017</td><td>-36975.259</td><td>-177535.1</td><td>150.5980</td><td>361.4238</td><td>291.4375</td><td>5.849094</td><td>4158.048</td><td>79.53854</td><td>-296386.5</td><td>354.1030</td><td>29609.83</td><td>-14152.19</td><td>0</td></tr>
+	<tr><th scope=row>3361</th><td>Bison4</td><td>NA</td><td>C17.3H34.7N0.015O1.55 </td><td>aq</td><td>thermofunc</td><td>NA</td><td>11/1/2017</td><td>-28442.862</td><td>-165284.8</td><td>145.0045</td><td>350.8409</td><td>280.6913</td><td>5.642638</td><td>3980.866</td><td>75.87279</td><td>-283555.8</td><td>343.8761</td><td>28109.31</td><td>-13597.09</td><td>0</td></tr>
+	<tr><th scope=row>3362</th><td>Bison5</td><td>NA</td><td>C16.9H33N0.00259O1.81 </td><td>aq</td><td>thermofunc</td><td>NA</td><td>11/1/2017</td><td>-42450.206</td><td>-172146.0</td><td>147.9660</td><td>338.3405</td><td>272.5637</td><td>5.481634</td><td>3859.431</td><td>73.37821</td><td>-274599.8</td><td>331.4704</td><td>27710.01</td><td>-13450.73</td><td>0</td></tr>
+	<tr><th scope=row>3363</th><td>Bison6</td><td>NA</td><td>C16.7H31.8N0.0033O1.96</td><td>aq</td><td>thermofunc</td><td>NA</td><td>11/1/2017</td><td>-44937.702</td><td>-169183.8</td><td>150.9237</td><td>329.8841</td><td>265.7185</td><td>5.374079</td><td>3684.549</td><td>69.73712</td><td>-262889.3</td><td>324.2365</td><td>22531.73</td><td>-11602.47</td><td>0</td></tr>
 </tbody>
 </table>
 
@@ -13694,7 +13683,7 @@ $$HCO_{3(aq)}^{-} + NH_{3} + H_{(aq)}^+ + e_{(aq)}^- = average\ lipid\ of\ site\
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># input measured log concentrations of nutrients and pH</span>
@@ -13718,13 +13707,17 @@ $$HCO_{3(aq)}^{-} + NH_{3} + H_{(aq)}^+ + e_{(aq)}^- = average\ lipid\ of\ site\
 
 <div class="output_html rendered_html output_subarea ">
 <table>
-<thead><tr><th></th><th scope=col>C</th><th scope=col>H</th><th scope=col>N</th><th scope=col>O</th><th scope=col>Z</th><th scope=col>ispecies</th><th scope=col>logact</th><th scope=col>state</th></tr></thead>
+<caption>A data.frame: 5 × 8</caption>
+<thead>
+	<tr><th></th><th scope=col>C</th><th scope=col>H</th><th scope=col>N</th><th scope=col>O</th><th scope=col>Z</th><th scope=col>ispecies</th><th scope=col>logact</th><th scope=col>state</th></tr>
+	<tr><th></th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
+</thead>
 <tbody>
-	<tr><th scope=row>HCO3-</th><td>1      </td><td>1      </td><td>0      </td><td>3      </td><td>-1     </td><td>13     </td><td>-2.3655</td><td>aq     </td></tr>
-	<tr><th scope=row>H2O</th><td>0      </td><td>2      </td><td>0      </td><td>1      </td><td> 0     </td><td> 1     </td><td> 0.0000</td><td>liq    </td></tr>
-	<tr><th scope=row>H+</th><td>0      </td><td>1      </td><td>0      </td><td>0      </td><td> 1     </td><td> 3     </td><td>-7.2350</td><td>aq     </td></tr>
-	<tr><th scope=row>e-</th><td>0      </td><td>0      </td><td>0      </td><td>0      </td><td>-1     </td><td> 2     </td><td>     NA</td><td>aq     </td></tr>
-	<tr><th scope=row>NH3</th><td>0      </td><td>3      </td><td>1      </td><td>0      </td><td> 0     </td><td>64     </td><td>-5.6034</td><td>aq     </td></tr>
+	<tr><th scope=row>HCO3-</th><td>1</td><td>1</td><td>0</td><td>3</td><td>-1</td><td>13</td><td>-2.3655</td><td>aq </td></tr>
+	<tr><th scope=row>H2O</th><td>0</td><td>2</td><td>0</td><td>1</td><td> 0</td><td> 1</td><td> 0.0000</td><td>liq</td></tr>
+	<tr><th scope=row>H+</th><td>0</td><td>1</td><td>0</td><td>0</td><td> 1</td><td> 3</td><td>-7.2350</td><td>aq </td></tr>
+	<tr><th scope=row>e-</th><td>0</td><td>0</td><td>0</td><td>0</td><td>-1</td><td> 2</td><td>     NA</td><td>aq </td></tr>
+	<tr><th scope=row>NH3</th><td>0</td><td>3</td><td>1</td><td>0</td><td> 0</td><td>64</td><td>-5.6034</td><td>aq </td></tr>
 </tbody>
 </table>
 
@@ -13747,7 +13740,7 @@ $$HCO_{3(aq)}^{-} + NH_{3} + H_{(aq)}^+ + e_{(aq)}^- = average\ lipid\ of\ site\
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># set &#39;average lipids&#39; as species of interest</span>
@@ -13770,14 +13763,18 @@ $$HCO_{3(aq)}^{-} + NH_{3} + H_{(aq)}^+ + e_{(aq)}^- = average\ lipid\ of\ site\
 
 <div class="output_html rendered_html output_subarea ">
 <table>
-<thead><tr><th scope=col>HCO3-</th><th scope=col>H2O</th><th scope=col>H+</th><th scope=col>e-</th><th scope=col>NH3</th><th scope=col>ispecies</th><th scope=col>logact</th><th scope=col>state</th><th scope=col>name</th></tr></thead>
+<caption>A data.frame: 6 × 9</caption>
+<thead>
+	<tr><th scope=col>HCO3-</th><th scope=col>H2O</th><th scope=col>H+</th><th scope=col>e-</th><th scope=col>NH3</th><th scope=col>ispecies</th><th scope=col>logact</th><th scope=col>state</th><th scope=col>name</th></tr>
+	<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
+</thead>
 <tbody>
-	<tr><td>19.8     </td><td>-58.12   </td><td>135.9067 </td><td>116.10670</td><td>0.01110  </td><td>3358     </td><td>-3       </td><td>aq       </td><td>Bison1   </td></tr>
-	<tr><td>19.4     </td><td>-56.78   </td><td>132.7108 </td><td>113.31080</td><td>0.01640  </td><td>3359     </td><td>-3       </td><td>aq       </td><td>Bison2   </td></tr>
-	<tr><td>18.0     </td><td>-52.27   </td><td>121.9692 </td><td>103.96920</td><td>0.02360  </td><td>3360     </td><td>-3       </td><td>aq       </td><td>Bison3   </td></tr>
-	<tr><td>17.3     </td><td>-50.35   </td><td>118.0550 </td><td>100.75500</td><td>0.01500  </td><td>3361     </td><td>-3       </td><td>aq       </td><td>Bison4   </td></tr>
-	<tr><td>16.9     </td><td>-48.89   </td><td>113.8722 </td><td> 96.97223</td><td>0.00259  </td><td>3362     </td><td>-3       </td><td>aq       </td><td>Bison5   </td></tr>
-	<tr><td>16.7     </td><td>-48.14   </td><td>111.3701 </td><td> 94.67010</td><td>0.00330  </td><td>3363     </td><td>-3       </td><td>aq       </td><td>Bison6   </td></tr>
+	<tr><td>19.8</td><td>-58.12</td><td>135.9067</td><td>116.10670</td><td>0.01110</td><td>3358</td><td>-3</td><td>aq</td><td>Bison1</td></tr>
+	<tr><td>19.4</td><td>-56.78</td><td>132.7108</td><td>113.31080</td><td>0.01640</td><td>3359</td><td>-3</td><td>aq</td><td>Bison2</td></tr>
+	<tr><td>18.0</td><td>-52.27</td><td>121.9692</td><td>103.96920</td><td>0.02360</td><td>3360</td><td>-3</td><td>aq</td><td>Bison3</td></tr>
+	<tr><td>17.3</td><td>-50.35</td><td>118.0550</td><td>100.75500</td><td>0.01500</td><td>3361</td><td>-3</td><td>aq</td><td>Bison4</td></tr>
+	<tr><td>16.9</td><td>-48.89</td><td>113.8722</td><td> 96.97223</td><td>0.00259</td><td>3362</td><td>-3</td><td>aq</td><td>Bison5</td></tr>
+	<tr><td>16.7</td><td>-48.14</td><td>111.3701</td><td> 94.67010</td><td>0.00330</td><td>3363</td><td>-3</td><td>aq</td><td>Bison6</td></tr>
 </tbody>
 </table>
 
@@ -13799,7 +13796,7 @@ $$HCO_{3(aq)}^{-} + NH_{3} + H_{(aq)}^+ + e_{(aq)}^- = average\ lipid\ of\ site\
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># set resolution to 300 calculations</span>
@@ -13852,7 +13849,7 @@ equilibrate: using boltzmann method
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># prepare &#39;average lipid&#39; speciation output for plotting:</span>
@@ -13874,16 +13871,14 @@ equilibrate: using boltzmann method
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
-
-<span class="c1"># plotly color palette</span>
+<div class=" highlight hl-r"><pre><span></span><span class="c1"># plotly color palette</span>
 <span class="n">pal</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;#1f77b4&quot;</span><span class="p">,</span> <span class="s">&quot;#ff7f0e&quot;</span><span class="p">,</span> <span class="s">&quot;#2ca02c&quot;</span><span class="p">,</span> <span class="s">&quot;#d62728&quot;</span><span class="p">,</span> <span class="s">&quot;#9467bd&quot;</span><span class="p">,</span> <span class="s">&quot;#8c564b&quot;</span><span class="p">)</span>
 
 <span class="c1"># create ggplot</span>
-<span class="n">p</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">)</span> <span class="o">+</span>
+<span class="n">p</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span> <span class="o">+</span>
      <span class="nf">ggtitle</span><span class="p">(</span><span class="nf">expression</span><span class="p">(</span><span class="s">&quot;Formation of average representative lipids of Bison Pool, 89&quot;</span><span class="o">*~</span><span class="n">degree</span><span class="o">*</span><span class="n">C</span><span class="p">))</span> <span class="o">+</span>
      <span class="nf">theme</span><span class="p">(</span><span class="n">panel.background</span><span class="o">=</span><span class="nf">element_blank</span><span class="p">())</span> <span class="o">+</span>
      <span class="nf">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">&quot;Eh, volts&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s">&quot;percent formation&quot;</span><span class="p">)</span> <span class="o">+</span>
@@ -13896,7 +13891,6 @@ equilibrate: using boltzmann method
      <span class="nf">scale_colour_manual</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;Lipid&quot;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">pal</span><span class="p">)</span>
 
 <span class="c1"># Change plot size to 7 x 3</span>
-<span class="nf">library</span><span class="p">(</span><span class="n">repr</span><span class="p">)</span>
 <span class="nf">options</span><span class="p">(</span><span class="n">repr.plot.width</span><span class="o">=</span><span class="m">7</span><span class="p">,</span> <span class="n">repr.plot.height</span><span class="o">=</span><span class="m">3</span><span class="p">)</span>
 
 <span class="c1"># Display plot</span>
